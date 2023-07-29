@@ -1,10 +1,11 @@
 /**
- * This class represents a circle and can calculate it's perimeter and area
+ * This class represents a circle and can calculate its perimeter and area
  * https://en.wikipedia.org/wiki/Circle
- * @constructor
- * @param {number} radius - The radius of the circle.
- */
+*/
 export default class Circle {
+  /**
+   * @param {number} radius - The radius of the circle.
+   */
   constructor (radius) {
     this.radius = radius
   }

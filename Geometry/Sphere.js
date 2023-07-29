@@ -1,10 +1,11 @@
 /**
  * This class represents a sphere and can calculate its volume and surface area
- * @constructor
- * @param {number} radius - The radius of the sphere
- * @see https://en.wikipedia.org/wiki/Sphere
- */
+ * https://en.wikipedia.org/wiki/Sphere
+*/
 export default class Sphere {
+  /**
+   * @param {number} radius - The radius of the sphere.
+   */
   constructor (radius) {
     this.radius = radius
   }
