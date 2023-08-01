@@ -6,11 +6,11 @@
  */
 export default class Triangle {
   /**
- * @param {{side1: number, side2: number, side3: number}} sides - The sides of the triangle
+ * @param {{side1: number, [side2: number], [side3: number]}} sides - The sides of the triangle
  * > side1: First side of the Triangle.\
  * > side2: Second side of the Triangle.\
  * > side3: Third side of the Triangle.
- * @param {{angle1: number, angle2: number, angle3: number}} angles - The angles of the triangle\
+ * @param {{angle1: number, angle2: number, angle3: number}} angles - The angles of the triangle
  * > angle1: The angle opposite to side 1.\
  * > angle2: The angle opposite to side 2.\
  * > angle3: The angle opposite to side 3.

@@ -5,18 +5,18 @@
 export default class Rectangle {
   /**
    * @param {number} length - The length of the Rectangle.
-   * @param {number} breadth - The breadth of the Rectangle.
+   * @param {number} width - The breadth/width of the Rectangle.
    */
-  constructor(length, breadth) {
+  constructor(length, width) {
     this.length = length
-    this.breadth = breadth
+    this.width = width
   }
 
   perimeter = () => {
-    return (this.length + this.breadth) * 2
+    return (this.length + this.width) * 2
   }
 
   area = () => {
-    return this.length * this.breadth
+    return this.length * this.width
   }
 }

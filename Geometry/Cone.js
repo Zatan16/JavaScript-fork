@@ -1,11 +1,12 @@
 /**
  * This class represents a circular cone and can calculate its volume and surface area
  * https://en.wikipedia.org/wiki/Cone
- * @constructor
- * @param {number} baseRadius - The radius of the base of the cone.
- * @param {number} height - The height of the cone
- */
+*/
 export default class Cone {
+  /**
+   * @param {number} baseRadius - The radius of the base of the cone.
+   * @param {number} height - The height of the cone
+   */
   constructor (baseRadius, height) {
     this.baseRadius = baseRadius
     this.height = height
