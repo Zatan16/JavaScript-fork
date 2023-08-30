@@ -10,6 +10,10 @@ export default class Circle {
     this.radius = radius
   }
 
+  #validateParams = () => {
+    if(typeof this.radius !== "number") throw new Error(`Expected type number for radius, instead recieved ${typeof this.radius}`)
+  }
+
   perimeter = () => {
     return this.radius * 2 * Math.PI
   }

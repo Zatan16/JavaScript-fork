@@ -1,5 +1,6 @@
 /**
  * This class represents a cuboid and can calculate its volume, surface area and lateral surface area
+ * https://en.wikipedia.org/wiki/Cuboid
  */
 export default class Cuboid {
   /**

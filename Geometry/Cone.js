@@ -12,6 +12,11 @@ export default class Cone {
     this.height = height
   }
 
+  #validateParams = () => {
+    if(typeof this.baseRadius !== "number") throw new Error(`Expected type number for base radius, instead received ${typeof this.baseRadius}`)
+    if(typeof this.height !== "number") throw new Error(`Expected type number for height, instead received ${typeof this.height}`)
+  }
+
   baseArea = () => {
     return Math.pow(this.baseRadius, 2) * Math.PI
   }

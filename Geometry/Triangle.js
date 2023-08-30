@@ -1,12 +1,12 @@
 /**
  * This class represents a triangle and can calculate its perimeter, area, other sides and angles.
  * **Please note that only 3 properties should be provided, and one should be a side**
- * https://en.wikipedia.org/wiki/Triangle\
- * The sides and angles are calculated with formulae from https://www.calculator.net/triangle-calculator.html
+ * https://en.wikipedia.org/wiki/Triangle \
+ * The sides and angles are calculated using formulae taken from https://www.calculator.net/triangle-calculator.html
  */
 export default class Triangle {
   /**
- * @param {{side1: number, [side2: number], [side3: number]}} sides - The sides of the triangle
+ * @param {{side1: number, side2: number, side3: number}} sides - The sides of the triangle
  * > side1: First side of the Triangle.\
  * > side2: Second side of the Triangle.\
  * > side3: Third side of the Triangle.
@@ -18,12 +18,38 @@ export default class Triangle {
   constructor(sides, angles) {
     this.sides = sides
     this.angles = angles
-    if(this.sides.length + this.angles.length !== 3) throw new Error(`Please provide only 3 properties of the triangle, you have provided ${this.sides.length + this.angles.length} properties`)
 
+    this.#validateParams()
     this.#calculateAllParams()
   }
 
-  #calculateAllParams() {
+  #validateParams = () => {
+    // Number of Parameters (sides, angles) provided
+    let numberOfSidesProvided = 0, numberOfAnglesProvided = 0
+    if(this.sides.side1) numberOfSidesProvided++
+    if(this.sides.side2) numberOfSidesProvided++
+    if(this.sides.side3) numberOfSidesProvided++
+    if(this.angles.angle1) numberOfAnglesProvided++
+    if(this.angles.angle2) numberOfAnglesProvided++
+    if(this.angles.angle3) numberOfAnglesProvided++
+
+    // Validate number of required params
+    if(numberOfSidesProvided + numberOfAnglesProvided !== 3) throw new Error(`Expected only 3 properties of the triangle, instead received ${this.sides.length + this.angles.length} properties`)
+    if(numberOfSidesProvided < 1) throw new Error(`Expected atleast one side of the triangle, instead none were provided`)
+
+    // Validate type of params
+    let areNumbers = (x) => {
+      let state = true
+      for(let i = 0; i < x.length; i++) {
+        if(typeof x[i] !== "number") state = false
+      }
+      return state
+    }
+
+    if(!areNumbers(Object.values(this.sides)) && !areNumbers(Object.values(this.angles))) throw new Error(`Expected type numbers for the properties of triangles, instead received: sides: {side1: ${typeof this.sides.side1}, side2: ${typeof this.sides.side2}, side3: ${this.sides.side3}}, angles: {angle1: ${typeof this.angles.angle1}, angle2: ${typeof this.angles.angle2}, angle3: ${typeof this.angles.angle3}}`)
+  }
+
+  #calculateAllParams = () => {
     let a = this.sides.side1
     let b = this.sides.side2
     let c = this.sides.side3
@@ -61,7 +87,7 @@ export default class Triangle {
         b = a * Math.sin(B) / Math.sin(A)
         c = a * Math.sin(C) / Math.sin(A)
       }
-      
+
       if(!B) {
         B = Math.PI - A - C
         b = a * Math.sin(B) / Math.sin(A)
@@ -99,7 +125,7 @@ export default class Triangle {
         a = b * Math.sin(A) / Math.sin(B)
         c = b * Math.sin(C) / Math.sin(B)
       }
-      
+
       if(!B) {
         B = Math.PI - A - C
         a = b * Math.sin(A) / Math.sin(B)
@@ -137,7 +163,7 @@ export default class Triangle {
         b = c * Math.sin(B) / Math.sin(C)
         a = c * Math.sin(A) / Math.sin(C)
       }
-      
+
       if(!B) {
         B = Math.PI - A - C
         b = c * Math.sin(B) / Math.sin(C)
